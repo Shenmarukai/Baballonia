@@ -1,6 +1,17 @@
+<!--
+Copyright 2025 PARADIGM REALITY ENHANCEMENT LABS LLC
+Copyright 2025 Leon Costa (modifications)
+
+Modified: Added fork notice about LibuvcCapture plugin for Bigscreen Beyond 2e support
+
+Licensed under the Babble Software Distribution License 1.0
+-->
+
 ![Baballonia Promo](BaballoniaPromo.png)
 
 # Baballonia
+
+> **Note:** This is a fork of Baballonia with an additional plugin (`src/Baballonia.LibuvcCapture`, licensed under LGPL) to enable native support for the Bigscreen Beyond 2e on Linux.
 
 **Baballonia** is a cross-platform, hardware-agnostic VR eye and face tracking application.
 

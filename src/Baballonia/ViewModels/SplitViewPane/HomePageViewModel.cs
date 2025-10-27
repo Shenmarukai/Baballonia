@@ -1,3 +1,11 @@
+// Copyright 2025 PARADIGM REALITY ENHANCEMENT LABS LLC
+// Copyright 2025 Leon Costa (modifications)
+//
+// Modified: Fixed capture method selection logic to handle single available capture method
+// and removed conditional backend clearing when capture method is not visible
+//
+// Licensed under the Babble Software Distribution License 1.0
+
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -121,6 +129,10 @@ public partial class HomePageViewModel : ViewModelBase, IDisposable
                 foreach (var match in availableCaptureFactories)
                     CaptureMethods.Add(match.GetProviderName());
 
+                SelectedCaptureMethod = availableCaptureFactories.First().GetProviderName();
+            }
+            else if (availableCaptureFactories.Length == 1)
+            {
                 SelectedCaptureMethod = availableCaptureFactories.First().GetProviderName();
             }
             else
@@ -599,8 +611,6 @@ public partial class HomePageViewModel : ViewModelBase, IDisposable
             SetButtons(model, false, false);
             var address = model.DisplayAddress;
             var backend = model.SelectedCaptureMethod;
-            if (!model.CaptureMethodVisible)
-                backend = "";
 
 
             bool success = false;

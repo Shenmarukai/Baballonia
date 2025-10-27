@@ -1,3 +1,10 @@
+// Copyright 2025 PARADIGM REALITY ENHANCEMENT LABS LLC
+// Copyright 2025 Leon Costa (modifications)
+//
+// Modified: Added error logging for UVC device listing failures
+//
+// Licensed under the Babble Software Distribution License 1.0
+
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -1,3 +1,11 @@
+# Copyright 2025 PARADIGM REALITY ENHANCEMENT LABS LLC
+# Copyright 2025 Leon Costa (modifications)
+#
+# Modified: Added libuvc and libusb1 dependencies, added LibuvcCapture module
+# to build outputs, and configured LD_LIBRARY_PATH for runtime library access
+#
+# Licensed under the Babble Software Distribution License 1.0
+
 {
   # These need to be the same commit as local submodules!!!!!
   inputs = {
@@ -31,6 +39,7 @@
         cmake opencv udev
         libjpeg libGL fontconfig
         xorg.libX11 xorg.libSM xorg.libICE
+        libuvc libusb1
         (pkgs.callPackage ./nix/opencvsharp.nix {})
       ];
       base = pkgs.buildDotnetModule {
@@ -75,6 +84,8 @@
           mv $out/lib/baballonia/Baballonia.IPCameraCapture.pdb $out/lib/baballonia/Modules/
           mv $out/lib/baballonia/Baballonia.SerialCameraCapture.dll $out/lib/baballonia/Modules/
           mv $out/lib/baballonia/Baballonia.SerialCameraCapture.pdb $out/lib/baballonia/Modules/
+          mv $out/lib/baballonia/Baballonia.LibuvcCapture.dll $out/lib/baballonia/Modules/
+          mv $out/lib/baballonia/Baballonia.LibuvcCapture.pdb $out/lib/baballonia/Modules/
         '';
 
         meta = with pkgs.lib; {
@@ -103,6 +114,7 @@
           dotnet.sdk dotnet.runtime
           xorg.libX11 xorg.libSM xorg.libICE
           libjpeg onnxruntime libGL fontconfig
+          libuvc libusb1
           (pkgs.callPackage ./nix/opencvsharp.nix {})
         ];
 
@@ -116,4 +128,3 @@
     });
   };
 }
-
