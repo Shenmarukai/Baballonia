@@ -27,14 +27,16 @@
     pkgsFor = system: import nixpkgs {
       inherit system;
     };
-    internal = pkgs.fetchurl {
-      url = "http://217.154.52.44:7771/builds/trainer/1.0.0.0.zip";
-      sha256 = "sha256:0cfc1r1nwcrkihmi9xn4higybyawy465qa6kpls2bjh9wbl5ys82";
-    };
   in {
     packages = forAllSystems (system: let
       pkgs = pkgsFor system;
       dotnet = pkgs.dotnetCorePackages.dotnet_8;
+
+      internal = pkgs.fetchurl {
+        url = "http://217.154.52.44:7771/builds/trainer/1.0.0.0.zip";
+        sha256 = "sha256:0cfc1r1nwcrkihmi9xn4higybyawy465qa6kpls2bjh9wbl5ys82";
+      };
+
       baseBuildInputs = with pkgs; [
         cmake opencv udev
         libjpeg libGL fontconfig
