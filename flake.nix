@@ -27,7 +27,7 @@
     pkgsFor = system: import nixpkgs {
       inherit system;
     };
-    internal = builtins.fetchurl {
+    internal = pkgs.fetchurl {
       url = "http://217.154.52.44:7771/builds/trainer/1.0.0.0.zip";
       sha256 = "sha256:0cfc1r1nwcrkihmi9xn4higybyawy465qa6kpls2bjh9wbl5ys82";
     };
